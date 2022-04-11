@@ -1,0 +1,28 @@
+<h1>Liste des réclamations : </h1>
+<table border="1">
+    <tr>
+        <td>Contenu_Reclamation</td>
+        <td>Type_Reclamation</td>
+        <td>Date_Reclamation</td>
+        <td>Suppression</td>
+        <td>Modification</td>
+      
+        
+    </tr>
+    {% for Reclamation in Reclamation %}
+        <tr>
+            <td>{{ Reclamation.contenuR }}</td>
+             <td>{{ Reclamation.typeR }}</td>
+            <td>{{ Reclamation.getDateR()|date('d M Y') }}</td>
+            <td> <a href="{{ path('deleteReclamation',{'idR':Reclamation.idR}) }}">Supprimer</a> </td>
+            <td><a href="{{ path('updateReclamation',{'idR':Reclamation.idR}) }}">Modifier</a>
+           
+
+
+
+            
+
+     
+        </tr>
+    {% endfor %}
+</table>

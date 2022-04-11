@@ -1,0 +1,35 @@
+<h1>Liste des évènements : </h1>
+<table border="1">
+    <tr>
+        <td>Nom de l'évènement</td>
+        <td>Adressse de l'évènement</td>
+        <td>Nombre de personnes</td>
+        <td>Nombre de places</td>
+        <td>Date de début</td>
+        <td>Date de fin</td>
+        <td>Suppression</td>
+        <td>Modification</td>
+      
+        
+    </tr>
+    {% for Evenement in Evenement %}
+        <tr>
+            <td>{{ Evenement.nomE }}</td>
+             <td>{{ Evenement.adresseE }}</td>
+             <td>{{ Evenement.nbrPers }}</td>
+             <td>{{ Evenement.nbrPlaces }}</td>
+            <td>{{ Evenement.getDateDebut()|date('d M Y') }}</td>
+            <td>{{ Evenement.getDateFin()|date('d M Y') }}</td>
+            <td> <a href="{{ path('deleteEvenement',{'idE':Evenement.idE}) }}">Supprimer</a> </td>
+            <td><a href="{{ path('updateEvenement',{'idE':Evenement.idE}) }}">Modifier</a>
+      
+           
+
+
+
+            
+
+     
+        </tr>
+    {% endfor %}
+</table>
