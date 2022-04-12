@@ -1,0 +1,17 @@
+
+ {% block body %}
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+
+   
+    {{ form_errors(form.nomcapsule) }}
+    {{ form_label(form.nomcapsule,"nomcapsule") }}
+    {{ form_widget(form.nomcapsule)}}
+    {{ form_errors(form.longcapsule) }}
+    {{ form_label(form.longcapsule,"longcapsule") }}
+    {{ form_widget(form.longcapsule)}}
+    {{ form_end(form) }}
+    {{ form_label(form.longcapsule,"longcapsule") }}
+    {{ form_widget(form.longcapsule)}}
+    {{ form_end(form) }}
+{% endblock %}

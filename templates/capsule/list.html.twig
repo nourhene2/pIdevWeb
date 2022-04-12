@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Capsule index{% endblock %}
+
+{% block body %}
+    <h1>Capsule index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomcapsule</th>
+                <th>Typecapsule</th>
+                <th>Longcapsule</th>
+                <th>Programmecapsule</th>
+                <th>Chemincapsule</th>
+                <th>Cible</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for capsule in capsules %}
+            <tr>
+                <td>{{ capsule.id }}</td>
+                <td>{{ capsule.nomcapsule }}</td>
+                <td>{{ capsule.typecapsule }}</td>
+                <td>{{ capsule.longcapsule }}</td>
+                <td>{{ capsule.programmecapsule }}</td>
+                <td>{{ capsule.chemincapsule }}</td>
+                <td>{{ capsule.cible }}</td>
+                <td><img src="uploads/{{ capsule.image }}" alt"capsule"> </img></td>
+                <td>
+                    <a href="{{ path('updateCapsule', {'id': capsule.id}) }}">update</a>
+                    <a href="{{ path('deleteCapsule', {'id': capsule.id}) }}">supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('addCapsule') }}">Create new</a>
+{% endblock %}

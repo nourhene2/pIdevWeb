@@ -1,0 +1,18 @@
+
+
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+
+   
+    
+    {{ form_label(form.nomcapsule,"nomcapsule") }}
+    {{ form_widget(form.nomcapsule)}}
+    
+    {{ form_label(form.typecapsule,"typecapsule") }}
+    {{ form_widget(form.typecapsule)}}
+    {{ form_errors(form.longcapsule) }}
+    {{ form_label(form.longcapsule,"longcapsule") }}
+    {{ form_widget(form.longcapsule)}}
+
+    
+    {{ form_end(form) }}
