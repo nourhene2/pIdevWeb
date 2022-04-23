@@ -1,0 +1,46 @@
+{% extends 'base/baseadmin.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+
+{% block corp %}
+<br><br>
+
+<h2>Ajouter Fournisseur </h2>
+<br>
+
+              
+{{ form_start (form, {attr: {novalidate: 'novalidate'}})}}
+  <div class="inputfield">
+  {{ form_row( form.nom,{'attr' : {'placeholder' : "saisir votre nom"}}) }}
+  {{ form_errors(form.nom, {'attr': {'class': 'text-danger'}}) }}
+  
+</div>  
+ <div class="inputfield">
+        
+ {{ form_row( form.address,{'attr' : {'placeholder' : "saisir votre address"}}) }}
+ {{ form_errors(form.address, {'attr': {'class': 'text-danger'}}) }}
+       </div>  
+     
+        <div class="inputfield">
+      
+       {{ form_row( form.num_tel,{'attr' : {'placeholder' : "saisir numero telf"}}) }}
+       </div> 
+    
+      <div class="inputfield"> 
+      
+        {{ form_row( form.email,{'attr' : {'placeholder' : "saisir email"}}) }}
+       </div> 
+ 
+        <button type="submit" class="btn btn-success">Ajouter</button>
+     
+    </div>
+
+{{ form_end (form)}}
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock  %}

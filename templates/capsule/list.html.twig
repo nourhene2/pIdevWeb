@@ -1,0 +1,74 @@
+{% extends 'base/base.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+
+
+{% block section2 %}
+
+{%endblock%}
+
+
+
+
+
+{% block corp%}
+
+
+    <!-- ***** Testimonials Starts ***** -->
+    <section class="section" id="trainers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Nos <em>Capsule</em></h2>
+                        <img src="assets/images/line-dec.png" alt="">
+                          </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+            {% for capsule in capsules %}
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                           <img  src="/uploads/{{capsule.image}}" id="img"  alt="Image" 
+              style =" width : 100px  ">   <br><br>  <br><br>
+                        </div>
+                        <div class="down-content">
+                            <span>{{ capsule.nomcapsule }}</span>
+                            <h4>{{ capsule.typecapsule }}</h4>
+                         <h4>  {{ capsule.longcapsule}}  </h4>
+                          <h4>  {{ capsule.programmecapsule }}  </h4>
+                           <h4>  {{ capsule.chemincapsule }}  </h4>
+                            <h4>  {{ capsule.cible }}  </h4>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Ends ***** -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}

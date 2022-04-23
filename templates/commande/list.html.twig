@@ -1,0 +1,130 @@
+{% extends 'base/baseadmin.html.twig' %}
+
+{% block titre %} pour la form {% endblock %}
+
+{% block corp%}
+
+
+              
+
+
+
+
+
+
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: coral;}
+</style>
+</head>
+
+<br><br><br>
+
+
+
+
+
+
+
+
+ <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section" style="color:red">la liste des commande  </h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+<br><br><br>
+                    <div class="table-wrap">
+                  <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                            <thead class="thead-primary">
+                            <tr style="color:red">
+        <td>PRODUIT</td>
+        <td>quantite</td>
+        <td>date </td>
+     <th>delate</th>
+    <th>modify</th>
+
+
+
+
+
+                            </tr>
+                            </thead>
+                            <tbody id="all">
+  {% for Commande in Commandes %}
+        <tr>
+            
+            <td>{{ Commande.nomProduit }}</td>
+            <td>{{ Commande.quantite}}</td>
+          <td> {{Commande.date | date('d/m/Y')}} </td>
+           
+
+                 
+                  <td> <button class="btn btn-danger" > 
+  
+                                            <a  href="{{ path('deleteCommande',{'idc':Commande.idc}) }}" style="color:white">Delete</a>
+                                            </button></td>
+
+
+
+                                             <td> <button class="btn btn-info" > 
+  
+                                           
+                                    <a href="{{ path('updateCommande',{'idc':Commande.idc}) }}" style="color:white" >Update</a>
+                                            </button></td>
+           
+
+
+            
+
+     
+        </tr>
+    {% endfor %}
+
+                            </tbody>
+                        </table>
+<br><br><br>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {% endblock %}

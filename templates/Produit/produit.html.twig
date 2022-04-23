@@ -1,0 +1,76 @@
+{% extends 'base/base.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+
+
+{% block section2 %}
+
+{%endblock%}
+
+
+
+
+
+{% block corp%}
+
+
+
+    <!-- ***** Testimonials Starts ***** -->
+    <section class="section" id="trainers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Nos <em>Produits</em></h2>
+                        <img src="assets/images/line-dec.png" alt="">
+                          </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+            {% for Produit in Produits %}
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                           <img  src="/uploads/{{Produit.image}}" id="img"  alt="Image" 
+              style =" width : 100px  ">   <br><br>  <br><br>
+                        </div>
+                        <div class="down-content">
+                            <span>{{ Produit.nom }}</span>
+                            <h4>{{ Produit.type }}</h4>
+                         <h4>  {{ Produit.prix }}  </h4>
+                           <a href="{{path('addCommande')}}"  >
+             <button   type="button"  style =" margin-left:40% " class="btn btn-warning"> passer un commande  </button>
+              </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Ends ***** -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
+

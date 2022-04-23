@@ -1,0 +1,36 @@
+{% extends 'base/baseadmin.html.twig' %}
+{% block titre %}  Produit  {% endblock %}
+{% block corp %}
+<br><br>
+
+<h2>modifier Produit</h2>
+<br>
+{{ form_start (formP)}}
+  <div class="inputfield">
+  {{ form_row( formP.nom,{'attr' : {'placeholder' : "saisir votre nom"}}) }}
+</div>  
+ <div class="inputfield">
+        
+ {{ form_row( formP.type,{'attr' : {'placeholder' : "saisir le  type"}}) }}
+       </div>  
+     
+        <div class="inputfield">
+      
+       {{ form_row( formP.prix,{'attr' : {'placeholder' : "saisir prix"}}) }}
+       </div> 
+    
+      <div class="inputfield">
+      
+        {{ form_row( formP.quantite,{'attr' : {'placeholder' : "saisir l quantite"}}) }}
+       </div> 
+         
+        <button type="submit"  style="width:20%;" class="btn btn-light" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-success">modify</button>
+     
+    </div>
+
+{{ form_end (formP)}}
+            </div>
+        </div>
+    </div>
+{%endblock%}

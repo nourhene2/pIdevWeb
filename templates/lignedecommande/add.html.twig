@@ -1,0 +1,55 @@
+{% extends 'base/baseadmin.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+
+{% block corp %}
+<br><br>
+
+<h2>Ajouter ligne de commande  </h2>
+<br>
+
+              
+{{ form_start (form, {attr: {novalidate: 'novalidate'}})}}
+  <div class="inputfield">
+  {{ form_row( form.quantite,{'attr' : {'placeholder' : "saisir votre nom"}}) }}
+  {{ form_errors(form.quantite, {'attr': {'class': 'text-danger'}}) }}
+</div>  
+ <div class="inputfield">
+        
+ {{ form_row( form.prix,{'attr' : {'placeholder' : "saisir votre type"}}) }}
+ {{ form_errors(form.prix, {'attr': {'class': 'text-danger'}}) }}
+       </div>  
+
+
+       
+     
+        <div class="inputfield">
+      
+       {{ form_row( form.remise,{'attr' : {'placeholder' : "saisir prix "}}) }}
+       {{ form_errors(form.remise, {'attr': {'class': 'text-danger'}}) }}
+       </div> 
+    
+      <div class="inputfield"> 
+      
+        {{ form_row( form.dated,{'attr' : {'placeholder' : "saisir quantite"}}) }}
+        
+       </div> 
+ 
+<div class="inputfield"> 
+             {{ form_row(form.datef, {'attr':{'class':'form-control'}})}}
+             
+    </div>
+
+        
+     
+    
+
+{{ form_end (form)}}
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock  %}

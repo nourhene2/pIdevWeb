@@ -1,0 +1,90 @@
+{% extends 'base/base.html.twig' %}
+
+{% block title %}<title>Edit User/Admin</title>{% endblock %}
+
+
+
+{% block section%}
+
+{% endblock %}
+
+
+
+
+
+
+{% block corp %}
+
+
+
+
+<div class="container rounded bg-light mt-5 mb-5">
+    <div class="row">
+    <div class="col-lg-12">
+    <br>
+                    <div class="heading-title" style="margin-left:28% ; color:orange">
+                    <style>
+                       h2.intro::first-letter {
+                       color: #ff0000;
+                       font-size: 150%;
+                                     }  
+                         </style>
+                        <h2 class="intro" >User {{ user.id }} details</h2>
+                    </div>
+                </div>
+                   
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"></div>
+        </div>
+  
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-group">
+                   <br>
+                       <div class="p-20" >
+                {{ include('admin/_form.html.twig', {'button_label': 'Update'}) }}
+                      <div class="p-1"></div>
+                   {{ include('admin/_delete_form.html.twig') }}
+                    <div class="p-1"></div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+  <a class="btn btn-primary waves-effect waves-light" href="{{ path('Users') }}" style="width: 100px">Back to list</a>
+                  </div>
+                         
+   <br><br>
+
+        </div>
+   
+    </div>               
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block footer%}
+{% endblock %}

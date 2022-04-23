@@ -1,0 +1,56 @@
+{% extends 'base/base.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+
+
+{% block section2 %}
+
+{%endblock%}
+
+
+
+
+
+{% block corp%}
+
+
+
+
+
+
+<class = "box"  style =" margin-left:50% "> 
+<link rel="stylesheet" href="css/reclamation.css">
+       <div class="wrapper">
+               <div class="title">
+               RECLAMATION
+               </div>
+               <br>
+             {{ form_start (form, {attr: {novalidate: 'novalidate'}})}}
+              <div class="inputfield">
+               {{ form_row( form.contenuR,{'attr' : {'placeholder' : "saisir votre nom"}}) }}
+              
+              </div>  
+              <div class="inputfield">
+               {{ form_row( form.typeR,{'attr' : {'placeholder' : "saisir votre type"}}) }}
+              
+                </div> 
+                 <div class="inputfield">
+               {{ form_row( form.dateR,{'attr' : {'placeholder' : "saisir votre type"}}) }}
+                </div> 
+                <br>  <br>
+              <button type="submit" class="btn btn-success" style="margin-left:35%">Envoyer</button>
+
+         </div>
+
+ 
+{{ form_end (form)}}
+</div>
+</class>
+
+
+
+
+
+{%endblock%}

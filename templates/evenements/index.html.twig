@@ -1,0 +1,74 @@
+{% extends 'base/base.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+
+
+{% block section2 %}
+
+{%endblock%}
+
+
+
+
+
+{% block corp%}
+
+
+
+    <!-- ***** Testimonials Starts ***** -->
+    <section class="section" id="trainers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Nos <em>event </em></h2>
+                        <img src="assets/images/line-dec.png" alt="">
+                          </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+         {% for Evenement in Evenement %}
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+                        <div class="image-thumb">
+                   
+                        </div>
+                        <div class="down-content">
+                            <span>{{ Evenement.nomE }}</span>
+                            <h4>{{ Evenement.nbrPers }}</h4>
+                         <h4>  {{Evenement.adresseE }}  </h4>
+                              <h4>{{ Evenement.dateDebut|date('d M Y') }}</h4>
+                         <h4>  {{Evenement.dateFin|date('d M Y') }}  </h4>
+
+            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Ends ***** -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
+

@@ -1,0 +1,80 @@
+{% extends 'base/base.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+
+
+{% block section2 %}
+
+{%endblock%}
+
+
+
+
+
+{% block corp%}
+
+
+
+    <!-- ***** Testimonials Starts ***** -->
+    <section class="section" id="trainers">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <h2>Nos <em>regimes </em></h2>
+                        <img src="assets/images/line-dec.png" alt="">
+                          </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+            {% for Regime in Regimes %}
+                <div class="col-lg-4">
+                    <div class="trainer-item">
+
+
+                        <div class="image-thumb">
+
+                           <img  src="uploads/{{Regime.image}}" id="img"  alt="Image" 
+              style =" width : 100px  ">   <br><br>  <br><br>
+                        </div>
+
+
+                        <div class="down-content">
+                        {% if Regime.user != null %}
+                    <h4 style="color:red" > Nutritionniste :  &nbsp;&nbsp;&nbsp;{{Regime.user.username}}</h4>
+                        {% endif %}
+                            <h4> categorie : {{ Regime.categorie }}</h4>
+                            <h4 > objectif : {{ Regime.objectif }}</h4>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+              
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Ends ***** -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
+

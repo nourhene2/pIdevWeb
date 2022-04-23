@@ -1,0 +1,66 @@
+{% extends 'base/baseadmin.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+{% block corp %}
+
+             
+{{ form_start (form, {attr: {novalidate: 'novalidate'}})}}
+  <div class="inputfield">
+  {{ form_row( form.nomcapsule,{'attr' : {'placeholder' : "saisir votre nom"}}) }}
+  {{ form_errors(form.nomcapsule, {'attr': {'class': 'text-danger'}}) }}
+</div>  
+ <div class="inputfield">
+        
+ {{ form_row( form.typecapsule,{'attr' : {'placeholder' : "saisir votre atype"}}) }}
+  {{ form_errors(form.typecapsule, {'attr': {'class': 'text-danger'}}) }}
+       </div>  
+     
+        <div class="inputfield">
+      
+       {{ form_row( form.longcapsule,{'attr' : {'placeholder' : "saisir numero longcapsule"}}) }}
+        {{ form_errors(form.longcapsule, {'attr': {'class': 'text-danger'}}) }}
+       </div> 
+    
+      <div class="inputfield"> 
+      
+        {{ form_row( form.programmecapsule,{'attr' : {'placeholder' : "saisir programmecapsule"}}) }}
+         {{ form_errors(form.programmecapsule, {'attr': {'class': 'text-danger'}}) }}
+       </div> 
+        <div class="inputfield"> 
+      
+        {{ form_row( form.chemincapsule,{'attr' : {'placeholder' : "saisir programmecapsule"}}) }}
+         {{ form_errors(form.chemincapsule, {'attr': {'class': 'text-danger'}}) }}
+       </div> 
+        <div class="inputfield"> 
+      
+        {{ form_row( form.cible,{'attr' : {'placeholder' : "saisir programmecapsule"}}) }}
+         {{ form_errors(form.cible, {'attr': {'class': 'text-danger'}}) }}
+       </div> 
+        <div class="inputfield"> 
+      
+        {{ form_row( form.image,{'attr' : {'placeholder' : "saisir programmecapsule"}}) }}
+         {{ form_errors(form.image, {'attr': {'class': 'text-danger'}}) }}
+       </div> 
+ 
+        <button type="submit" class="btn btn-success">Ajouter</button>
+     
+    </div>
+
+{{ form_end (form)}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock  %}
