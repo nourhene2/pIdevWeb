@@ -9,6 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Form\RegimeType;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use App\Repository\RegimeRepository;
+
 
 class RegimeController extends AbstractController
 {
@@ -17,15 +22,63 @@ class RegimeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('regime/index.html.twig', [
+        
+        return $this->render('regime/listp.html.twig', [
             'controller_name' => 'RegimeController',
         ]);
     }
+       /**
+     * @Route("/listp", name="listp")
+     */
+    public function listp()
+    {$pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+        
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        
+        $Regimes = $this->getDoctrine()->getRepository(Regime::class)->findAll();
+        
+        
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('Regime/list.html.twig', ["Regimes" => $Regimes]);
+        
+        // Load HTML to Dompdf
+
+        $dompdf->loadHtml($html);
+
+        
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => true
+        ]);
+    
+    }
+     /**
+     * @Route("/listRegimeFront", name="listRegimeFront")
+     */
+    public function listRegimeFront()
+    {    
+        $Regimes = $this->getDoctrine()->getRepository(Regime::class)->findAll();
+        
+        return $this->render('Regime/regime.html.twig', ["Regimes" => $Regimes]);
+    }
+   
+
     /**
      * @Route("/listRegime", name="listRegime")
      */
     public function listRegime()
-    {
+    {  
+       
+        
         $Regimes = $this->getDoctrine()->getRepository(Regime::class)->findAll();
         
         return $this->render('Regime/list.html.twig', ["Regimes" => $Regimes]);
@@ -95,4 +148,41 @@ class RegimeController extends AbstractController
         }
         return $this->render("regime/update.html.twig", array('form' => $form->createView()));
     }
+   /**
+    * @param RegimeRepository $repository
+    * @param Request $request
+    * @return \Symfony\Component\HttpFoundation\RedirectResponse
+    *  @Route ("/rating",name="rating")
+   */
+public function rating(RegimeRepository $repository, Request $request)
+{
+
+    $id=$request->request->get('idd');
+    // $rating=$_GET['note'];
+    $classroomm = new Regime();
+    $classroom = $repository->find($id);
+
+
+
+    $rating =$request->request->get('notee');
+    $classroom->setRate($rating);
+    $em = $this->getDoctrine()->getManager();
+    $em->persist($classroom);
+    $em->flush();
+
+    return new JsonResponse(array('operation'=>'success'));
+
+
 }
+
+}
+
+
+
+
+
+
+
+
+
+

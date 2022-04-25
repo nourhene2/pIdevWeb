@@ -42,6 +42,19 @@ class Regime
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $rate;
+
+    
+
+    public function __construct(FlashyNotifier $flashy)
+    {
+        $this->flashy = $flashy;
+
+    }
+
     public function getIdr(): ?int
     {
         return $this->idr;
@@ -79,6 +92,18 @@ class Regime
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getRate(): ?int
+    {
+        return $this->rate;
+    }
+
+    public function setRate(int $rate): self
+    {
+        $this->rate = $rate;
 
         return $this;
     }

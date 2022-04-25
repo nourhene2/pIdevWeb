@@ -7,13 +7,24 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+                <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
         {% endblock %}
 
         {% block javascripts %}
+        <script src="//code.jquery.com/jquery.js"></script>
             {#{{ encore_entry_script_tags('app') }}#}
+             <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
         {% endblock %}
+           
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %} {% endblock %}
+    
+         <!-- Flashy depends on jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Load Flashy default JavaScript -->
+    <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+    <!-- Include Flashy default partial -->
+    {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
     </body>
 </html>

@@ -1,4 +1,14 @@
-<table border="1">
+
+            <table border="1">
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+</script>
+
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <tr>
         <td>Categporie</td>
         <td>Objectif</td>
@@ -9,14 +19,12 @@
         <tr>
             <td>{{ Regime.categorie }}</td>
            <td>{{ Regime.objectif }}</td>
-          <td> <img                     src="uploads/{{Regime.image}}"></img> </td>
+          <td> <img  src="uploads/{{Regime.image}}"></img> </td>
            <td> <a href="{{ path('deleteRegime',{'idR':Regime.idR}) }}">Delete</a> </td>
            <td><a href="{{ path('updateRegime',{'idR':Regime.idR}) }}">Update</a>
+           <td><a href="{{ path('listp')}}">Imprimer</a>
 
-
-            
-
-     
-        </tr>
+ </tr>
     {% endfor %}
 </table>
+ 
