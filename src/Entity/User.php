@@ -40,12 +40,12 @@ class User implements UserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string" , nullable=true)
      
     * @Groups("post:read")
      */
     private $password;
-
+    protected $captchaCode;
     
 
     /**
@@ -268,7 +268,16 @@ class User implements UserInterface
     {
         return $this->isVerified;
     }
-     
+    public function getCaptchaCode()
+    {
+        return $this->captchaCode;
+    }
+    public function setCaptchaCode( $captchaCode)
+    {
+        $this->captchaCode = $captchaCode;
 
+    
+    }
+   
 
 }

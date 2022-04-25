@@ -63,10 +63,32 @@
                             </center>
                         </div>
                     </div>
+					
             
-                    <div class="col-md-12">
-                        <div class="submit-button text-center">
-                        
+                              <div class="col-md-12">
+                                  <div class="submit-button text-center">
+						               <div class="form-group">
+                                          <label for="exampleFormControlInput1">Are you a robot?</label>
+								           {{ form_widget(registrationForm.captchaCode , {'attr' : { 'class' : 'form-control'}})}}
+							           </div>
+						            </div>
+					            </div>
+				       
+
+					{% set formErrors = registrationForm.vars.errors.form.getErrors(true) %}
+
+
+					{% if formErrors|length %}
+                       
+						      <ul>
+							      {% for error in formErrors %}
+								    <li>{{ error.message }}</li>
+								  {% endfor %}	
+								</ul>
+							</div>	
+					{% endif %}		  
+
+
                             <button type="submit" class="btn btn-warning">Register</button>
                         </div>
                     </div>

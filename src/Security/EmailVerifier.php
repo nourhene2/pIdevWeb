@@ -32,7 +32,8 @@ class EmailVerifier
         );
 
         $context = $email->getContext();
-        $context['signedUrl'] = $signatureComponents->getSignedUrl();
+        $context['signedUrl'] = "http://127.0.0.1:8000/verify/email?id=".$user->getId();
+        //$signatureComponents->getSignedUrl();
         $context['expiresAtMessageKey'] = $signatureComponents->getExpirationMessageKey();
         $context['expiresAtMessageData'] = $signatureComponents->getExpirationMessageData();
 

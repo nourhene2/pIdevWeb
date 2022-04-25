@@ -1004,4 +1004,28 @@ a:focus {
 .footer_section .footer-info p a {
   color: inherit;
 }
+btn-google {
+	background: #d85040;
+	border-color: #d85040;
+}
+.btn-google:hover {
+	color: #fff;
+	background: #d33d2b;
+	border-color: #d33d2b;
+}
+.btn-login li {
+	margin: 0px 5px 0;
+	display: inline-block;
+}
+.btn-login li a {
+	border-radius: 5px;
+	padding: 10px 20px;
+	color: #fff;
+	display: block;
+}
+.btn-login li a i {
+	margin-right: 10px;
+	font-size: 18px;
+	margin-left: 0;
+}
 /*# sourceMappingURL=style.css.map */

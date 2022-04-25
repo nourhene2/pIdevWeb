@@ -3,6 +3,8 @@
 namespace App\Controller;
 use App\Entity\User;
 use App\Form\EditProfileType;
+use App\Repository\UserRepository;
+
 use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,6 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * Class UserController
@@ -90,7 +96,26 @@ class UserController extends AbstractController
 
         return $this->render('users/edit_password.html.twig');
     }
+    /** 
+     * @Route("/testrecherche",name="testrecherche")
+    */
+    public function searchLivAction(Request $request,NormalizerInterface $Normalizer){
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $requestString=$request->get('User');
+        $users = $repository->findUserByName($requestString);
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
 
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($users, 'json',['ignored_attributes'=>['password','roles','image','captchaCode','isVerified','isBlocked','regimes','fullname']]);
+        $retour=json_encode($jsonContent);
+        return new Response($retour);
+
+
+    }
+
+   
+    
 }    
 
 

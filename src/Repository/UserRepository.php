@@ -90,4 +90,20 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         ;
     }
     */
+    public function findUserByName($username){
+        return $this->createQueryBuilder('user')
+            ->where('user.username LIKE :username')
+            ->setParameter('username', '%'.$username.'%')
+            ->getQuery()
+            ->getResult();
+    }
+    public function findByExpField($value)
+    {
+        return $this->createQueryBuilder('lid')
+            ->Where('lid.id like :val or lid.username like :val or  lid.email like :val')
+            ->setParameter('val', '%'.$value.'%')
+            ->orderBy('lid.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 }

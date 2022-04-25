@@ -29,7 +29,7 @@ class ResetPasswordController extends AbstractController
     private $resetPasswordHelper;
     private $entityManager;
 
-    public function __construct(ResetPasswordHelperInterface $resetPasswordHelper, EntityManagerInterface $entityManager)
+    public function __construct(ResetPasswordHelperInterface $resetPasswordHelper,EntityManagerInterface $entityManager)
     {
         $this->resetPasswordHelper = $resetPasswordHelper;
         $this->entityManager = $entityManager;
@@ -40,7 +40,7 @@ class ResetPasswordController extends AbstractController
 
     /**
      *
-     * @Route("", name="app_forgot_password_request")
+     * @Route("/app_forgot_password_request", name="app_forgot_password_request")
      */
     public function request (Request $request, MailerInterface $mailer): Response
     {
@@ -137,7 +137,7 @@ class ResetPasswordController extends AbstractController
 
     private function processSendingPasswordResetEmail(string $emailFormData, MailerInterface $mailer): RedirectResponse
     {
-        $user = $this->entityManager->getRepository(User::class)->findOneBy([
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy([
             'email' => $emailFormData,
         ]);
 

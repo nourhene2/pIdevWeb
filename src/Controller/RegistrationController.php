@@ -155,20 +155,14 @@ class RegistrationController extends AbstractController
      */
     public function blockUser($id): Response
     {
-        $currentUser = $this->getUser();
-        if (!$currentUser) {
-            return $this->redirectToRoute('app_login');
-        }
-        if ($currentUser->getRoles() == ["ROLE_ADMIN"]) {
+       
             $em = $this->getDoctrine()->getManager();
             $user = $this->getDoctrine()->getRepository(User::class)->find($id);
             $user->setIsBlocked(true);
             $em->flush();
 
-            return $this->redirectToRoute('user_back_show');
-        } else {
-            return $this->redirectToRoute('error');
-        }
+            return $this->redirectToRoute('Users');
+        
     }
 
     /**
@@ -176,21 +170,17 @@ class RegistrationController extends AbstractController
      */
     public function unblockUser($id): Response
     {
-        $user = $this->getUser();
-        if (!$user) {
-            return $this->redirectToRoute('app_login');
-        }
-        if ($user->getRoles() == ["ROLE_ADMIN"]) {
+        
+       
             $em = $this->getDoctrine()->getManager();
             $user = $this->getDoctrine()->getRepository(User::class)->find($id);
             $user->setIsBlocked(false);
             $em->flush();
 
-            return $this->redirectToRoute('user_back_show');
-        } else {
-            return $this->redirectToRoute('error');
-        }
+            return $this->redirectToRoute('Users');
+        
     }
+   
 
 
     

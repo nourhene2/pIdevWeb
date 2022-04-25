@@ -35,7 +35,7 @@
                     <div class="alert alert-danger" role="alert">{{ flashError }}</div>
                 {% endfor %}
             
-  {{ form_start(requestForm, {attr: {novalidate: 'novalidate'}}) }}
+  {{ form_start(requestForm) }}
                 <div class="col-md-12">
                 <br><br><br><br>
                     <div class="form-group" style="color:white" >
@@ -253,6 +253,6 @@ a{color:inherit;text-decoration:none}
 
 {% block footer%}
 
-{%endblock%}
+{% endblock %}
 
  

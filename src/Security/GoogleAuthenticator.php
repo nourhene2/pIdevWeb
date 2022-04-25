@@ -61,11 +61,10 @@ class GoogleAuthenticator extends \KnpU\OAuth2ClientBundle\Security\Authenticato
         $googleUser = $this->getGoogleClient()
             ->fetchUserFromToken($credentials);
         $email = $googleUser->getEmail();
-        $image =$googleUser->getAvatar();
+       
         $user =$this->em->getRepository('App:User')
             ->findOneBy(['email'=>$email]);
-        $user =$this->em->getRepository('App:User')
-            ->findOneBy(['image'=>$image]);    
+    
 
         if(!$user)
         {
