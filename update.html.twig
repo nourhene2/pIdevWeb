@@ -1,0 +1,54 @@
+{% extends 'base/baseadmin.html.twig' %}
+{% block titre %}  Pour la form {% endblock %}
+
+
+
+
+{% block corp %}
+<br><br>
+
+<h2> Modifier évènement</h2>
+<br>
+
+              
+{{ form_start (form, {attr: {novalidate: 'novalidate'}})}}
+  <div class="inputfield">
+  {{ form_row( form.nomE,{'attr' : {'placeholder' : "saisir votre type"}}) }}
+</div>  
+ <div class="inputfield">
+        
+ {{ form_row( form.adresseE,{'attr' : {'placeholder' : "saisir votre type"}}) }}
+       </div>  
+
+
+       
+     
+        <div class="inputfield">
+      
+       {{ form_row( form.nbrPers,{'attr' : {'placeholder' : "saisir votre type "}}) }}
+       </div> 
+    
+      <div class="inputfield"> 
+      
+        {{ form_row( form.nbrPlaces,{'attr' : {'placeholder' : "saisir votre type"}}) }}
+       </div> 
+ 
+<div class="inputfield"> 
+             {{ form_row(form.dateDebut, {'attr':{'class':'form-control'}})}}
+    </div>
+
+<div class="inputfield"> 
+             {{ form_row(form.dateFin, {'attr':{'class':'form-control'}})}}
+    </div>
+
+        
+     
+    
+
+{{ form_end (form)}}
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock  %}
